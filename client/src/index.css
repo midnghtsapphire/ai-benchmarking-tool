@@ -1,0 +1,289 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Custom volcanic colors */
+  --color-magma: var(--magma);
+  --color-magma-foreground: var(--magma-foreground);
+  --color-ember: var(--ember);
+  --color-ember-foreground: var(--ember-foreground);
+  --color-moss: var(--moss);
+  --color-moss-foreground: var(--moss-foreground);
+  --color-gold: var(--gold);
+  --color-gold-foreground: var(--gold-foreground);
+  --color-obsidian: var(--obsidian);
+  --color-ash: var(--ash);
+
+  --font-display: "DM Serif Display", Georgia, serif;
+  --font-sans: "Source Sans 3", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
+
+/* Volcanic Observatory — Dark Earthy Theme (NO blue light) */
+:root {
+  --radius: 0.625rem;
+
+  /* Volcanic palette — warm spectrum only */
+  --magma: oklch(0.45 0.15 25);
+  --magma-foreground: oklch(0.95 0.02 60);
+  --ember: oklch(0.55 0.18 45);
+  --ember-foreground: oklch(0.15 0.02 50);
+  --moss: oklch(0.38 0.08 145);
+  --moss-foreground: oklch(0.92 0.04 145);
+  --gold: oklch(0.7 0.14 80);
+  --gold-foreground: oklch(0.15 0.03 80);
+  --obsidian: oklch(0.16 0.01 60);
+  --ash: oklch(0.25 0.008 55);
+
+  /* Semantic tokens — all warm */
+  --background: oklch(0.14 0.01 55);
+  --foreground: oklch(0.88 0.02 70);
+  --card: oklch(0.18 0.012 55);
+  --card-foreground: oklch(0.88 0.02 70);
+  --popover: oklch(0.2 0.012 55);
+  --popover-foreground: oklch(0.88 0.02 70);
+  --primary: oklch(0.65 0.14 75);
+  --primary-foreground: oklch(0.14 0.01 55);
+  --secondary: oklch(0.22 0.01 55);
+  --secondary-foreground: oklch(0.78 0.02 70);
+  --muted: oklch(0.24 0.008 55);
+  --muted-foreground: oklch(0.62 0.02 65);
+  --accent: oklch(0.28 0.01 55);
+  --accent-foreground: oklch(0.92 0.02 70);
+  --destructive: oklch(0.5 0.18 25);
+  --destructive-foreground: oklch(0.95 0.02 60);
+  --border: oklch(0.28 0.012 55);
+  --input: oklch(0.24 0.01 55);
+  --ring: oklch(0.65 0.14 75);
+
+  /* Charts — warm volcanic spectrum */
+  --chart-1: oklch(0.65 0.14 75);
+  --chart-2: oklch(0.5 0.16 30);
+  --chart-3: oklch(0.42 0.1 145);
+  --chart-4: oklch(0.6 0.18 50);
+  --chart-5: oklch(0.55 0.12 100);
+
+  /* Sidebar */
+  --sidebar: oklch(0.16 0.012 55);
+  --sidebar-foreground: oklch(0.85 0.02 70);
+  --sidebar-primary: oklch(0.65 0.14 75);
+  --sidebar-primary-foreground: oklch(0.14 0.01 55);
+  --sidebar-accent: oklch(0.24 0.01 55);
+  --sidebar-accent-foreground: oklch(0.92 0.02 70);
+  --sidebar-border: oklch(0.28 0.012 55);
+  --sidebar-ring: oklch(0.65 0.14 75);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  [type="button"]:not(:disabled),
+  [type="submit"]:not(:disabled),
+  [type="reset"]:not(:disabled),
+  a[href],
+  select:not(:disabled),
+  input[type="checkbox"]:not(:disabled),
+  input[type="radio"]:not(:disabled) {
+    @apply cursor-pointer;
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+  }
+}
+
+@layer components {
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .flex {
+    min-height: 0;
+    min-width: 0;
+  }
+
+  @media (min-width: 640px) {
+    .container {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      padding-left: 2rem;
+      padding-right: 2rem;
+      max-width: 1400px;
+    }
+  }
+
+  /* Glassmorphism panels */
+  .glass-panel {
+    background: oklch(0.18 0.012 55 / 60%);
+    backdrop-filter: blur(16px) saturate(1.2);
+    border: 1px solid oklch(0.35 0.015 55 / 30%);
+    box-shadow:
+      0 0 0 1px oklch(0.65 0.14 75 / 5%),
+      0 4px 24px oklch(0.1 0.01 55 / 40%),
+      inset 0 1px 0 oklch(1 0 0 / 3%);
+  }
+
+  .glass-panel-elevated {
+    background: oklch(0.2 0.014 55 / 65%);
+    backdrop-filter: blur(20px) saturate(1.3);
+    border: 1px solid oklch(0.4 0.02 55 / 25%);
+    box-shadow:
+      0 0 0 1px oklch(0.65 0.14 75 / 8%),
+      0 8px 32px oklch(0.1 0.01 55 / 50%),
+      inset 0 1px 0 oklch(1 0 0 / 4%);
+  }
+
+  /* Thermal gradient borders */
+  .thermal-border {
+    position: relative;
+  }
+  .thermal-border::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg, oklch(0.5 0.16 30 / 40%), oklch(0.65 0.14 75 / 30%), oklch(0.42 0.1 145 / 20%));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  /* Strata divider */
+  .strata-divider {
+    height: 3px;
+    background: linear-gradient(90deg,
+      oklch(0.2 0.01 55),
+      oklch(0.3 0.015 55),
+      oklch(0.65 0.14 75 / 30%),
+      oklch(0.3 0.015 55),
+      oklch(0.2 0.01 55)
+    );
+  }
+
+  /* Seismograph loading */
+  @keyframes seismo {
+    0%, 100% { transform: scaleY(0.3); }
+    25% { transform: scaleY(1); }
+    50% { transform: scaleY(0.6); }
+    75% { transform: scaleY(0.9); }
+  }
+
+  .seismo-bar {
+    animation: seismo 1.2s ease-in-out infinite;
+  }
+
+  /* Ember glow on hover */
+  .ember-glow {
+    transition: box-shadow 0.4s ease-out, border-color 0.4s ease-out;
+  }
+  .ember-glow:hover {
+    box-shadow: 0 0 20px oklch(0.65 0.14 75 / 15%), 0 0 40px oklch(0.5 0.16 30 / 8%);
+    border-color: oklch(0.65 0.14 75 / 40%);
+  }
+
+  /* Thermal pulse animation */
+  @keyframes thermal-pulse {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 1; }
+  }
+
+  .thermal-pulse {
+    animation: thermal-pulse 3s ease-in-out infinite;
+  }
+
+  /* Lava flow animation for progress */
+  @keyframes lava-flow {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 200% 50%; }
+  }
+
+  .lava-flow {
+    background: linear-gradient(90deg,
+      oklch(0.5 0.16 30),
+      oklch(0.65 0.14 75),
+      oklch(0.55 0.18 45),
+      oklch(0.5 0.16 30)
+    );
+    background-size: 200% 100%;
+    animation: lava-flow 3s linear infinite;
+  }
+
+  /* Fade in up animation */
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(16px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in-up {
+    animation: fade-in-up 0.6s ease-out forwards;
+  }
+
+  /* Metric card number styling */
+  .metric-value {
+    font-family: var(--font-mono);
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.02em;
+  }
+}
