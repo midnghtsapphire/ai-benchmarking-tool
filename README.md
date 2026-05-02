@@ -83,3 +83,12 @@ The build uses `vite.config.ghpages.ts` which excludes all development-only plug
 ## License
 
 MIT
+
+---
+
+## Test
+
+| Feature | Status |
+|---------|--------|
+| Feature | ✅ Ready |
+
