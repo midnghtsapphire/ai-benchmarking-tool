@@ -1,5 +1,12 @@
 # AI Benchmarking Tool
 
+
+<!-- AUTO-PACKAGE-BADGES:START -->
+<!-- Auto-generated package badges -->
+
+![npm version](https://img.shields.io/npm/v/ai-benchmarking-tool?style=flat-square&logo=npm&color=blue) ![npm downloads](https://img.shields.io/npm/dw/ai-benchmarking-tool?style=flat-square&color=brightgreen) ![npm license](https://img.shields.io/npm/l/ai-benchmarking-tool?style=flat-square) [![Deployed](https://img.shields.io/badge/deployed-1.0.0-blue?style=flat-square)](https://www.npmjs.com/package/ai-benchmarking-tool)
+
+<!-- AUTO-PACKAGE-BADGES:END -->
 A production-ready web application for benchmarking AI models across providers. Compare speed, accuracy, and cost in real-time with an interactive dashboard.
 
 **Live Demo:** [https://midnghtsapphire.github.io/ai-benchmarking-tool/](https://midnghtsapphire.github.io/ai-benchmarking-tool/)
